@@ -26,21 +26,32 @@ while (indent != 0)
 
   //request a char
   requestShape(c);
-
+  //blanks the string right before execution of each loop
   oneRowString = "";
-  //do we do a draw X function or just a dowhile
+
+  //for initialize a string the length of indent
+  for (i = 0; i < indent; i++)
+    {
+   oneRowString.insert(0, "."); 
+    }  
+
+ //insert mark character in left and right place
   for (i = 0; i < indent; i++)
   {
-  //  cout << indent << endl;
-   oneRowString.insert(0, "."); 
-  }
+    int left = 0;
+    int right = indent - 1;
+  oneRowString.replace(left, 1, c);
+  oneRowString.replace(right, 1, c); 
+//  ++left;
+//  --right;
   
-  cout << oneRowString << endl;
-}  
+
+   cout << oneRowString << endl;
+   }
+  }
 
   return 0;
 }
-
 
 int oneRow( string& s, int indent, char c)
 {
