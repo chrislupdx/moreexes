@@ -7,28 +7,36 @@ using namespace std;
 
 int oneRow(string&, int, char='X');
 void intro(int&, char&);
-int requestNum(int& number);
+int requestNum(int& indent);
 char requestShape(string& shape);
 
 int main()
 {
-  int number;
-  string shape;
+  int i, indent;
+  string c, s, oneRowString;
+  char charC;
 
 cout << "intro" << endl;
 
 
-while (number != 0)
+while (indent != 0)
 {
   //request an number
-  requestNum(number);
+  requestNum(indent);
 
   //request a char
-  requestShape(shape);
+  requestShape(c);
 
+  oneRowString = "";
   //do we do a draw X function or just a dowhile
-}
-
+  for (i = 0; i < indent; i++)
+  {
+  //  cout << indent << endl;
+   oneRowString.insert(0, "."); 
+  }
+  
+  cout << oneRowString << endl;
+}  
 
   return 0;
 }
@@ -37,31 +45,31 @@ while (number != 0)
 int oneRow( string& s, int indent, char c)
 {
   int i;
- 
+ cout << "ping" << endl; 
 //produce a str that is indent spaces long.
 //for (i = 0; i < indent; i++)
 
   return 0;
 }
 
-char requestShape(string& shape)
+char requestShape(string& c)
 {
   cout << "gimme a char" << endl;
 
-  cin >> shape;
+  cin >> c;
   cout << endl;
-  if (shape == "0")
+  if (c == "0")
   {
-  shape = '&';
+  c = '&';
   }
 }
 
-int requestNum(int& number)
+int requestNum(int& indent)
 {
   do
   {
   cout << "gimme a number" << endl;
-  cin >> number;
+  cin >> indent;
   }
-  while (number < 0);
+  while (indent < 0);
 }
