@@ -8,12 +8,12 @@ using namespace std;
 int oneRow(string&, int, char='X');
 void intro(int&, char&);
 int requestNum(int& number);
-char requestChar(char& shape);
+char requestShape(string& shape);
 
 int main()
 {
   int number;
-  char shape;
+  string shape;
 
 cout << "intro" << endl;
 
@@ -24,7 +24,9 @@ while (number != 0)
   requestNum(number);
 
   //request a char
-  requestChar(shape);
+  requestShape(shape);
+
+  //do we do a draw X function or just a dowhile
 }
 
 
@@ -32,18 +34,23 @@ while (number != 0)
 }
 
 
-int oneRow( string &s, int indent, char c)
+int oneRow( string& s, int indent, char c)
 {
+  int i;
+ 
+//produce a str that is indent spaces long.
+//for (i = 0; i < indent; i++)
+
   return 0;
 }
 
-char requestChar(char& shape)
+char requestShape(string& shape)
 {
   cout << "gimme a char" << endl;
 
   cin >> shape;
   cout << endl;
-  if (shape == 0)
+  if (shape == "0")
   {
   shape = '&';
   }
