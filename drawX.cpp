@@ -48,14 +48,27 @@ int oneRow( string& s, int indent, char c)
 {
   int left = 0;
   int right = indent - 1;
-  
-  string stringC;
+  string stringC, newString;
+  newString = s;
+ 
+  //strinC = string version of char c
   stringC.insert(0, 1, c);
-//really tempted to throw in a 4loop here to increment+decrement and print for ln of indent
- //replaces char on left/right
-  s.replace(left, 1, stringC);
-  s.replace(right, 1, stringC);
-  cout << s << endl;
+
+  newString.replace(left, 1, stringC);
+  newString.replace(right, 1, stringC);
+  for (int i = 0; i < indent; i++)
+  {
+ //replace is writing over the OGs so they don't recede 
+   newString.replace(left, 1, stringC);
+   newString.replace(right, 1, stringC);
+    cout << newString << endl;
+    ++left;
+    --right; 
+ 
+   //reset newstring 
+  newString = s;
+  
+  }
 
   return 0;
 }
