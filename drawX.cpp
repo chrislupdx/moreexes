@@ -7,14 +7,26 @@ using namespace std;
 
 int oneRow(string&, int, char='X');
 void intro(int&, char&);
+int requestNum(int& number);
+char requestChar(char& shape);
+
 int main()
 {
   int number;
   char shape;
 
-  intro(number, shape);
+cout << "intro" << endl;
 
-  cout << shape << number << endl;
+
+while (number != 0)
+{
+  //request an number
+  requestNum(number);
+
+  //request a char
+  requestChar(shape);
+}
+
 
   return 0;
 }
@@ -22,17 +34,27 @@ int main()
 
 int oneRow( string &s, int indent, char c)
 {
-
   return 0;
 }
 
-void intro(int& number, char& shape)
+char requestChar(char& shape)
 {
-
-  cout << "this is what it will do " << endl;
-  cout << "gimme a integer" << endl;
-  cin >> number;
   cout << "gimme a char" << endl;
-  cin >> shape;
 
+  cin >> shape;
+  cout << endl;
+  if (shape == 0)
+  {
+  shape = '&';
+  }
+}
+
+int requestNum(int& number)
+{
+  do
+  {
+  cout << "gimme a number" << endl;
+  cin >> number;
+  }
+  while (number < 0);
 }
