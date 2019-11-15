@@ -16,8 +16,8 @@ int main()
   string c, s, oneRowString;
   char charC;
     
-cout << "intro" << endl;
-
+cout << "Takes an integer and character (as string) and " 
+<<  "prints an x the size of the integer with the character" << endl;
 
 while (indent != 0)
 {
@@ -58,18 +58,18 @@ int oneRow( string& s, int indent, char c)
   newString.replace(right, 1, stringC);
   for (int i = 0; i < indent; i++)
   {
- //replace is writing over the OGs so they don't recede 
+  //using replace to stick the markers in the the right place 
    newString.replace(left, 1, stringC);
    newString.replace(right, 1, stringC);
-    cout << newString << endl;
+   cout << newString << endl;
+
+   //incrementing/decrementing so they can get printed into the right position next
     ++left;
     --right; 
  
-   //reset newstring 
+  //reset newstring 
   newString = s;
-  
   }
-
   return 0;
 }
 
