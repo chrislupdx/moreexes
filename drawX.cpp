@@ -1,7 +1,8 @@
-//DrawX take 3
+//DrawX 
 //11/15/19 Chris Lu
 //This drawX program take an user-given integer and character (as String) and 
 //returns an X the length and width of the integer printed with the character
+//sources: none
 
 #include <iomanip>
 #include <iostream>
@@ -10,8 +11,8 @@ using namespace std;
 
 int oneRow(string&, int, char = 'X');
 void intro(int&, char&);
-int requestNum(int& indent);
-char requestShape(string& shape);
+void requestNum(int& indent);
+void requestShape(string& shape);
 
 int main()
 {
@@ -19,8 +20,8 @@ int main()
   string c, s, oneRowString;
   char charC;
     
-cout << "Takes an integer and character (as string) and " 
-<<  "prints an x the size of the integer with the character" << endl;
+  cout << "Takes an integer and character (as string) and " 
+  <<  "prints an x the size of the integer with the character" << endl;
 
 while (indent != 0)
   {
@@ -29,8 +30,7 @@ while (indent != 0)
   //request a char
   requestShape(c);
   //cast c as a char to pass into oneRow
-  charC = c[0];
-    
+  charC = c[0];   
   //blanks the string right before execution of each loop
   s = "";
   
@@ -40,16 +40,16 @@ while (indent != 0)
    s.insert(0, "."); 
      }
   if(indent == 0)
-  {
+    {
     cout << "num = 0, exiting!" << endl;
-  }
-  else{
+    }
+  else
+    {
    oneRow(s, indent, charC);
     }
   }
 
 return 0;
-
 }
 
 //does oneRow does the string modification (what if this int is not indent?)
@@ -62,30 +62,28 @@ int oneRow( string& s, int indent, char c)
  
   //strinC = string version of char c
   stringC.insert(0, 1, c);
-
+  //insert marker character on the left and right position
   newString.replace(left, 1, stringC);
   newString.replace(right, 1, stringC);
+
   for (int i = 0; i < indent; i++)
   {
   //using replace to stick the markers in the the right place 
    newString.replace(left, 1, stringC);
    newString.replace(right, 1, stringC);
    cout << newString << endl;
-
    //incrementing/decrementing so they can get printed into the right position next
-    ++left;
-    --right; 
- 
+   ++left;
+   --right; 
   //reset newstring 
   newString = s;
   }
   return 0;
 }
 
-char requestShape(string& c)
+void requestShape(string& c)
 {
   cout << "gimme a char" << endl;
-
   cin >> c;
   cout << endl;
   if (c == "0")
@@ -94,12 +92,12 @@ char requestShape(string& c)
   }
 }
  
-int requestNum(int& indent)
+void requestNum(int& indent)
 { 
   do
   {
   cout << "gimme a number" << endl;
   cin >> indent;
   } 
-  while (indent < 0 ); 
+  while (indent < 0 );
 }
