@@ -22,9 +22,8 @@ int main()
 cout << "Takes an integer and character (as string) and " 
 <<  "prints an x the size of the integer with the character" << endl;
 
+while (indent != 0)
   {
- 
-  if (indent == 0)
   //request an number
   requestNum(indent);
   //request a char
@@ -40,9 +39,14 @@ cout << "Takes an integer and character (as string) and "
      {
    s.insert(0, "."); 
      }
-   oneRow(s, indent, charC);
+  if(indent == 0)
+  {
+    cout << "num = 0, exiting!" << endl;
   }
-while (indent > 0);
+  else{
+   oneRow(s, indent, charC);
+    }
+  }
 
 return 0;
 
@@ -96,11 +100,6 @@ int requestNum(int& indent)
   {
   cout << "gimme a number" << endl;
   cin >> indent;
-//  if (indent == 0)
-//  {
-//    cout << "iszero" << endl;
-//  }
   } 
-  while (indent < 0 );
-  
+  while (indent < 0 ); 
 }
