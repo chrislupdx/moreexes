@@ -1,4 +1,7 @@
 //DrawX take 3
+//11/15/19 Chris Lu
+//This drawX program take an user-given integer and character (as String) and 
+//returns an X the length and width of the integer printed with the character
 
 #include <iomanip>
 #include <iostream>
@@ -19,28 +22,30 @@ int main()
 cout << "Takes an integer and character (as string) and " 
 <<  "prints an x the size of the integer with the character" << endl;
 
-while (indent != 0)
-{
+  {
+ 
+  if (indent == 0)
   //request an number
   requestNum(indent);
   //request a char
   requestShape(c);
-
   //cast c as a char to pass into oneRow
   charC = c[0];
     
   //blanks the string right before execution of each loop
   s = "";
-
+  
   //for initialize a string the length of indent
   for (i = 0; i < indent; i++)
-    {
+     {
    s.insert(0, "."); 
-    }
-
+     }
    oneRow(s, indent, charC);
-}
-  return 0;
+  }
+while (indent > 0);
+
+return 0;
+
 }
 
 //does oneRow does the string modification (what if this int is not indent?)
@@ -84,13 +89,18 @@ char requestShape(string& c)
   c = '&';
   }
 }
-
+ 
 int requestNum(int& indent)
-{
+{ 
   do
   {
   cout << "gimme a number" << endl;
   cin >> indent;
-  }
-  while (indent < 0);
+//  if (indent == 0)
+//  {
+//    cout << "iszero" << endl;
+//  }
+  } 
+  while (indent < 0 );
+  
 }
