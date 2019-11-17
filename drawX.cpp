@@ -1,7 +1,7 @@
 //DrawX 
 //11/15/19 Chris Lu
-//This drawX program take an user-given integer and character (as String) and 
-//returns an X the length and width of the integer printed with the character
+//This drawX program takes a user-given integer and character (as string) and 
+//returns a X the size of the integer printed with the designated character
 //sources: none
 
 #include <iomanip>
@@ -52,7 +52,7 @@ while (indent != 0)
 return 0;
 }
 
-//does oneRow does the string modification (what if this int is not indent?)
+//initialize the one row string, call display the modified string for each row of the X
 int oneRow( string& s, int indent, char c)
 {
   int left = 0;
@@ -81,6 +81,7 @@ int oneRow( string& s, int indent, char c)
   return 0;
 }
 
+//takes a string input, if specified 0, will return a default Char
 void requestShape(string& c)
 {
   cout << "gimme a char" << endl;
@@ -91,7 +92,8 @@ void requestShape(string& c)
   c = '&';
   }
 }
- 
+
+//Only takes positive values, zero is an exit condition
 void requestNum(int& indent)
 { 
   do
