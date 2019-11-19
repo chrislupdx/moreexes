@@ -28,8 +28,15 @@ while (indent != 0)
   //request an number
   requestNum(indent);
   //request a char
+ if (indent == 0)
+ {
+   cout << "exiting" << endl;
+ }
+ else 
+ {
   requestShape(c);
-  //cast c as a char to pass into oneRow
+ }
+   //cast c as a char to pass into oneRow
   charC = c[0];   
   //blanks the string right before execution of each loop
   s = "";
